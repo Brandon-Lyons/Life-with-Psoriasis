@@ -1,0 +1,68 @@
+.outerwrapper {
+  width:80%;
+  margin:auto;
+}
+
+.top-twitter-feed {
+  width:100%;
+  min-height:40px;
+  margin-top: -10px;
+}
+
+.title-and-nav-content {
+  width:100%;
+  margin:auto;
+}
+.title-logo {
+  width:80%;
+  min-height:140px;
+  margin:auto;
+}
+
+.title-content {
+  width:80%;
+  min-height: 140px;
+  margin:auto;
+}
+.title-description {
+  width:80%;
+  min-height:140px;
+  margin:auto;
+}
+.title-nav {
+  width:80%;
+  min-height:100px;
+  margin:auto;
+}
+.title-nav li{
+  display:inline;
+}
+
+.first_section_link {
+  width:140px;
+  height:60px;
+  float:left;
+}
+.second_section_link {
+  width:140px;
+  height:60px;
+  float:left;
+  margin-left: 12%;
+}
+.third_section_link {
+  width:140px;
+  height:60px;
+  float:left;
+  margin-left: 12%;
+}
+.main-content {
+  width:80%;
+  height: 700px;
+}
+.twitter-feed {
+  width:20%;
+  float:right;
+  height:700px;
+}
+
+
