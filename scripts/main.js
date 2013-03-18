@@ -112,7 +112,7 @@ $(document).ready(function(){
         var container = $('#newsFeed');
         for (var i=0; i< result.feed.entries.length; i++) {
           var entry = result.feed.entries[i];
-          $(container).append("<li><a href='" + entry.link + "'>" + entry.title + "</a></li>");
+          $(container).append("<a href='" + entry.link + "'>" + entry.title + "</a><br>");
         };
       }
     })

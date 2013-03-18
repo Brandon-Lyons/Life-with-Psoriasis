@@ -59,9 +59,9 @@ body{
   width:25%;
   float:left;
 }
-.main {
+.main-content {
   width:80%;
-  min-height: 700px;
+  height: 700px;
 }
 .twitter-feed {
   width:20%;
@@ -70,10 +70,8 @@ body{
 }
 
 #newsFeed{
-  width: 20%;
+  width:20%;
   float: right;
-  background-color: red;
-  height: 700px;
 }
 
 #tweets li {
