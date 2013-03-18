@@ -1,3 +1,4 @@
+  google.load("feeds", "1");
 $(document).ready(function(){
 
   $('.main-content').hide();
@@ -101,5 +102,20 @@ $(document).ready(function(){
       infoWindow.close();
     })
   };
-       }   ;                      
+       };
+
+
+  function loadNewsFeed() {
+    var feed = new google.feeds.Feed("http://www.news-medical.net/tag/feed/Psoriasis.aspx");
+    feed.load(function(result){
+      if (!result.error) {
+        var container = $('#newsFeed');
+        for (var i=0; i< result.feed.entries.length; i++) {
+          var entry = result.feed.entries[i];
+          $(container).append("<li><a href='" + entry.link + "'>" + entry.title + "</a></li>");
+        };
+      }
+    })
+  } ;
+  google.setOnLoadCallback(loadNewsFeed);
 });  //end ready

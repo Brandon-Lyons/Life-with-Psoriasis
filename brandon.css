@@ -59,14 +59,21 @@ body{
   width:25%;
   float:left;
 }
-.main-content {
+.main {
   width:80%;
-  height: 700px;
+  min-height: 700px;
 }
 .twitter-feed {
   width:20%;
   float:right;
   height:700px;
+}
+
+#newsFeed{
+  width: 20%;
+  float: right;
+  background-color: red;
+  height: 700px;
 }
 
 #tweets li {
