@@ -1,3 +1,20 @@
+@font-face{
+  font-family: "ArchitectsDaughter";
+  src: url("fonts/ArchitectsDaughter.ttf");
+}
+
+body{
+  background: #e4f5fc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #e4f5fc 0%, #bfe8f9 40%, #9fd8ef 60%, #2ab0ed 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4f5fc), color-stop(40%,#bfe8f9), color-stop(60%,#9fd8ef), color-stop(100%,#2ab0ed)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* Opera 11.10+ 
+  background: -ms-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
+  background-repeat: no-repeat;
+  font-family: ArchitectsDaughter;
+}
 .outerwrapper {
   width:80%;
   margin:auto;
@@ -12,6 +29,9 @@
 .title-and-nav-content {
   width:100%;
   margin:auto;
+  background-image: url("img/background-title.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .title-logo {
   margin:auto;
@@ -58,4 +78,20 @@
   overflow: hidden;
 }
 
+#map{
+  height: 75%;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#autocomplete{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5px;
+}
+
+.tab-content{
+  margin-top: -350px;
+}
 

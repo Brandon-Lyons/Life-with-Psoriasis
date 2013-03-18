@@ -33,7 +33,7 @@ $(document).ready(function(){
       url:"https://search.twitter.com/search.json?q=%23psoriasis",
       success:function(response) {
         tweets = (response.results);
-        $.each(tweets, function() { $("#tweets").append("<li><h5>" + this.text + "</h5></li>") });
+        $.each(tweets, function() { $("#tweets").append("<li><a href='https://twitter.com/"+ this.from_user +"'><h5>" + this.text + "</h5></a></li>") });
         $('#tweets').totemticker({row_height:"30", max_items:"1"});
       }
     });
