@@ -91,6 +91,10 @@
   margin-right: auto;
 }
 
+#map img {
+  max-width: none;
+}
+
 #autocomplete{
   width: 50%;
   margin-left: 25%;
