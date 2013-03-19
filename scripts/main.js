@@ -110,10 +110,10 @@ $(document).ready(function(){
     var feed = new google.feeds.Feed("http://www.news-medical.net/tag/feed/Psoriasis.aspx");
     feed.load(function(result){
       if (!result.error) {
-        var container = $('#newsFeed');
+        var container = $('#newsFeedInner');
         for (var i=0; i< result.feed.entries.length; i++) {
           var entry = result.feed.entries[i];
-          $(container).append("<a href='" + entry.link + "'>" + entry.title + "</a><br>");
+          $(container).append("<p><a href='" + entry.link + "'>" + entry.title + "</a><br></p>");
         };
       }
     })

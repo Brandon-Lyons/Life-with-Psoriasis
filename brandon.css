@@ -25,7 +25,7 @@ body {
 }
 
 .outerwrapper {
-  width:80%;
+  width:100%;
   margin:auto;
   background-color:#ADB4C4;
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .title-and-nav-content {
-  width:60%;
+  width:65%;
   margin:auto;
   text-align: center;
   background-color:#69799A;
@@ -58,7 +58,6 @@ body {
 }
 
 .title-content {
-  width:80%;
   min-height: 140px;
   margin:auto;
 }
@@ -83,24 +82,43 @@ body {
   height: 700px;
 }
 .twitter-feed {
-  width:20%;
-  float:right;
-  height:300px;
+  min-height:300px;
+  width:90%;
 }
 
 #newsFeed{
-  width:20%;
-  float: right;
-  position: absolute;
-  margin-left: 65%;
-  margin-top: 23%;
+  width:90%;
+  background-color:#69799A;
+  border-radius:15px;
+  font-family: "lucida grande",lucida,tahoma,helvetica,arial,sans-serif!important;
+  min-height: 325px;
 }
 
 #newsFeed h4 {
   text-align: center;
-  border: 1px solid black;
+  color:#E39E5B;
+  padding: 5px 5px 5px 5px;
 }
 
+#newsFeed p {
+  border-bottom: 1px dotted #ddd;
+  overflow: hidden;
+  zoom: 1;
+  margin: 2px 10px 2px 10px;
+}
+
+#newsFeed a {
+  color: #A43C23;
+  font-size: 12px;
+  line-height: 0px;
+}
+
+#newsFeedInner {
+  background-color:#ADB4C4;
+  width: 90%;
+  margin:auto;
+  border-radius:15px;
+}
 #tweets li {
   list-style:none;
   background-color:#69799A;
@@ -121,10 +139,9 @@ body {
 }
 
 #map{
-  height: 75%;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  height: 60%;
+  width: 100%;
+  margin-left:5%;
 }
 
 #map img {
@@ -132,7 +149,7 @@ body {
 }
 
 #autocomplete{
-  width: 50%;
+  width: 60%;
   margin-left: 25%;
   margin-top: 5px;
 }
@@ -142,5 +159,10 @@ body {
   height: auto;
   width: 90%;
   margin: auto;
+}
+
+.main {
+  width:75%;
+  margin-left:10%;
 }
 
