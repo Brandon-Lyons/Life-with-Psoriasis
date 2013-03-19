@@ -15,6 +15,14 @@
   background-repeat: no-repeat;
   font-family: ArchitectsDaughter;
 }*/
+@font-face {
+  font-family: "Play";
+  src: url("fonts/Play-Regular.ttf");
+}
+
+body {
+  font-family: Play;
+}
 
 .outerwrapper {
   width:80%;
@@ -39,6 +47,11 @@
   background-repeat: no-repeat;
   background-position: center;*/
 }
+
+#follow-button{
+  margin-top: -45px;
+}
+
 .title-logo {
   margin:auto;
   width:50%;
@@ -72,12 +85,20 @@
 .twitter-feed {
   width:20%;
   float:right;
-  height:700px;
+  height:300px;
 }
 
 #newsFeed{
-  width:80%;
-  float: left;
+  width:20%;
+  float: right;
+  position: absolute;
+  margin-left: 65%;
+  margin-top: 23%;
+}
+
+#newsFeed h4 {
+  text-align: center;
+  border: 1px solid black;
 }
 
 #tweets li {
@@ -107,7 +128,7 @@
 }
 
 #map img {
-  max-width: none;
+  max-width: none; 
 }
 
 #autocomplete{
@@ -116,9 +137,6 @@
   margin-top: 5px;
 }
 
-.tab-content{
-  margin-top: -350px;
-}
 
 .twtr-timeline{
   height: auto;
