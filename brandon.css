@@ -3,7 +3,7 @@
   src: url("fonts/ArchitectsDaughter.ttf");
 }
 
-body{
+/*body{
   background: #e4f5fc; /* Old browsers */
   background: -moz-linear-gradient(top,  #e4f5fc 0%, #bfe8f9 40%, #9fd8ef 60%, #2ab0ed 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4f5fc), color-stop(40%,#bfe8f9), color-stop(60%,#9fd8ef), color-stop(100%,#2ab0ed)); /* Chrome,Safari4+ */
@@ -14,7 +14,7 @@ body{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
   background-repeat: no-repeat;
   font-family: ArchitectsDaughter;
-}
+}*/
 .outerwrapper {
   width:80%;
   margin:auto;
@@ -29,9 +29,10 @@ body{
 .title-and-nav-content {
   width:100%;
   margin:auto;
-  background-image: url("img/background-title.jpg");
+  text-align: center;
+/* background-image: url("img/background-title.jpg");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center;*/
 }
 .title-logo {
   margin:auto;
@@ -70,8 +71,8 @@ body{
 }
 
 #newsFeed{
-  width:20%;
-  float: right;
+  width:80%;
+  float: left;
 }
 
 #tweets li {

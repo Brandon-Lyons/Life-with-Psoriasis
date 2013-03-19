@@ -47,13 +47,13 @@ $(document).ready(function(){
   var mapOptions = {
     center: new google.maps.LatLng(36.1666667, -86.78333329999998),
     zoom: 15,
-    mapTypeId: google.maps.MapTypeId.SATELLITE
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   var map = new google.maps.Map(document.getElementById("map"),mapOptions);
 
   var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-  autocomplete.bindTo('bounds',map);
+  // autocomplete.bindTo('bounds',map);
 
   var service = new google.maps.places.PlacesService(map);
 
@@ -61,14 +61,14 @@ $(document).ready(function(){
     var infoWindow = new google.maps.InfoWindow();
     infoWindow.close();
     var loc = autocomplete.getPlace();
-    var lat= loc.geometry.location.mb;
-    var lon= loc.geometry.location.nb;
+    var lat= loc.geometry.location.kb;
+    var lon= loc.geometry.location.lb;
     var request= {
       location: new google.maps.LatLng (lat, lon),
       radius: '5000',
-      query: 'dermatologist'
+      keyword: 'dermatologist'
     };
-    service.textSearch(request, callback);
+    service.nearbySearch(request, callback);
     if (loc.geometry.viewport) {
       map.fitBounds(loc.geometry.viewport);
     } else {
@@ -76,7 +76,6 @@ $(document).ready(function(){
       map.setZoom(15);
     }
  });  //en google.maps event listener
-
   function callback(results, status) {
     if (status===google.maps.places.PlacesServiceStatus.OK) {
       for (var i=0; i< results.length; i++){
@@ -85,6 +84,7 @@ $(document).ready(function(){
       };
     };
     console.log(results);
+    console.log(status);
   };
 
   function createMarker (place) {
@@ -94,16 +94,15 @@ $(document).ready(function(){
 
     var infoWindow = new google.maps.InfoWindow();
     marker.setPosition(place.geometry.location);
-    infoWindow.setContent('<div><strong>' + place.name + '</strong><br><p>'+ place.formatted_address +'</p><a href="'+ place.website +'" >'+ place.website +'</a>');
-    google.maps.event.addListener(marker,'click',function(e){
-      infoWindow.open(map, marker);
-    });
-    google.maps.event.addListener(map, 'click', function(e){
+    infoWindow.setContent('<div><strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p><a href="'+ place.website +'" >'+ place.website +'</a>');
+    google.maps.event.addListener(marker, 'click', function() {
       infoWindow.close();
-    })
+      infoWindow.open(map, this);
+    });
   };
-       };
+  };
 
+ 
 
   function loadNewsFeed() {
     var feed = new google.feeds.Feed("http://www.news-medical.net/tag/feed/Psoriasis.aspx");
