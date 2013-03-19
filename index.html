@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color:#ADB4C4">
   <head>
     <title>test</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -18,12 +18,12 @@
   </head>
   <body>
     <div class="outerwrapper"> <!-- width:960px; -->
-      <div id="top-twitter-feed" class="navbar"> <!-- width:100% -->
-        <div class="navbar-inner">
-        <ul id="tweets"></ul>
+      <div id="top-twitter-feed" class="navbar" style="background-color:#ADB4C4"> <!-- width:100% -->
+        <div class="nav-bar-inner">
+        <ul id="tweets" style="background-color:#69799A;border-radius:5px;margin:auto;"></ul>
       </div>
     </div>
-      <div class="title-and-nav-content"> <!-- width:80%, centered -->
+      <div class="title-and-nav-content">
         <div class="title-content">
           <div class="title-logo">
             <h2>Life with Psoriasis</h2>
@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-      <div class="twitter-feed">
+      <div class="twitter-feed" style="background-color:#69799A;border-radius:15px;margin-right:2%;">
         <script>
           new TWTR.Widget({
             type: 'profile',
@@ -63,12 +63,13 @@
             theme: {
             shell: {
               background: 'transparent',
-              color: '#333'
+              color: '#E39E5B'
             },
             tweets: {
-              background: 'transparent',
-              color: '#333',
-              links: '#4358F2'
+              background: '#ADB4C4',
+              color: '#A43C23',
+              links: '334',
+              width: '60%'
             }
             },
             features: {
@@ -83,7 +84,7 @@
           }).render().setUser('LifewPsoriasis').start();
           </script>
         </div>
-      <div class="main"><!-- width:80% -->
+      <div class="main" style="background-color:#ADB4C4">
         <div class="main-content" id="first-content-div">
           <h3>What is Psoriasis</h3>
           <p>

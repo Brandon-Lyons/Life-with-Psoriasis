@@ -1,6 +1,8 @@
   google.load("feeds", "1");
 $(document).ready(function(){
 
+  $('body').css('background-color', '#ADB4C4')
+
   $('.main-content').hide();
 
   $('#first_section_link').click(function(e) {

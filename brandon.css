@@ -15,9 +15,11 @@
   background-repeat: no-repeat;
   font-family: ArchitectsDaughter;
 }*/
+
 .outerwrapper {
   width:80%;
   margin:auto;
+  background-color:#ADB4C4;
 }
 
 #top-twitter-feed {
@@ -27,9 +29,12 @@
 }
 
 .title-and-nav-content {
-  width:100%;
+  width:60%;
   margin:auto;
   text-align: center;
+  background-color:#69799A;
+  border-radius:15px;
+  margin-bottom:20px;
 /* background-image: url("img/background-title.jpg");
   background-repeat: no-repeat;
   background-position: center;*/
@@ -77,11 +82,21 @@
 
 #tweets li {
   list-style:none;
+  background-color:#69799A;
+  border-radius:3px;
+  width:80%;
+  margin:auto;
+}
+
+#tweets a {
+  color:#E39E5B;
 }
 
 #tweets {
+  min-height:40px;
   max-height:40px;
   overflow: hidden;
+  background-color:#ADB4C4;
 }
 
 #map{
@@ -103,5 +118,11 @@
 
 .tab-content{
   margin-top: -350px;
+}
+
+.twtr-timeline{
+  height: auto;
+  width: 90%;
+  margin: auto;
 }
 

@@ -1,6 +1,5 @@
-.navbar-inner {
-	background-image: linear-gradient(to bottom, #222222, #111111);
-	border-color: #252525;
+.nav-bar-inner {
+  background-color:#69799A;
 }
 html, body{
 				height: 100%;
