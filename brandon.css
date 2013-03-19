@@ -1,20 +1,12 @@
-@font-face{
-  font-family: "ArchitectsDaughter";
-  src: url("fonts/ArchitectsDaughter.ttf");
+@font-face {
+  font-family: "Play";
+  src: url("fonts/Play-Regular.ttf");
 }
 
-/*body{
-  background: #e4f5fc; /* Old browsers */
-  background: -moz-linear-gradient(top,  #e4f5fc 0%, #bfe8f9 40%, #9fd8ef 60%, #2ab0ed 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4f5fc), color-stop(40%,#bfe8f9), color-stop(60%,#9fd8ef), color-stop(100%,#2ab0ed)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* Opera 11.10+ 
-  background: -ms-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #e4f5fc 0%,#bfe8f9 40%,#9fd8ef 60%,#2ab0ed 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
-  background-repeat: no-repeat;
-  font-family: ArchitectsDaughter;
-}*/
+body {
+  font-family: Play;
+}
+
 .outerwrapper {
   width:80%;
   margin:auto;
@@ -30,10 +22,12 @@
   width:100%;
   margin:auto;
   text-align: center;
-/* background-image: url("img/background-title.jpg");
-  background-repeat: no-repeat;
-  background-position: center;*/
 }
+
+#follow-button{
+  margin-top: -45px;
+}
+
 .title-logo {
   margin:auto;
   width:50%;
@@ -67,12 +61,20 @@
 .twitter-feed {
   width:20%;
   float:right;
-  height:700px;
+  height:300px;
 }
 
 #newsFeed{
-  width:80%;
-  float: left;
+  width:20%;
+  float: right;
+  position: absolute;
+  margin-left: 65%;
+  margin-top: 23%;
+}
+
+#newsFeed h4 {
+  text-align: center;
+  border: 1px solid black;
 }
 
 #tweets li {
@@ -92,7 +94,7 @@
 }
 
 #map img {
-  max-width: none;
+  max-width: none; 
 }
 
 #autocomplete{
@@ -101,7 +103,4 @@
   margin-top: 5px;
 }
 
-.tab-content{
-  margin-top: -350px;
-}
 
