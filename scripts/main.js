@@ -29,6 +29,18 @@ $(document).ready(function(){
 
   getTweets();
   getComments();
+  // deleteComment();
+
+  // function deleteComment(){
+  //   $.ajax({
+  //     url: "backliftapp/comments/2152405c-3df3-4477-ae9a-a6b4df9125fb",
+  //     type: "DELETE",
+  //     datatype: "json",
+  //     success: function(){
+  //       location.reload();
+  //     }
+  //     });
+  // };
 
   function getTweets() {
     $.ajax({
@@ -49,7 +61,9 @@ $(document).ready(function(){
       url:"backliftapp/comments",
       data: {comment: $('#comment-field').val()},
       success: function(data){
+        $('#comment-field').val("");
         console.log(data);
+        getComments();
       }
     })
   };  //end postComments
@@ -61,18 +75,25 @@ $(document).ready(function(){
       success: function(data){
         for (var i = 0; i< data.length; i++){
           comment = data[i].comment;
-          $('#ticker').append("<li>"+ comment +"</li>");
+          $('#ticker').append("<li><a href=''>"+ comment +"</a></li>");
         };
         $('#ticker').liScroll();
       }
     })
-  };
+  };  //end getComments
 
-  $('#submit').click(
-    function(){
-      postComments();
-      getComments();
-    }
+  function textCheck() {
+      if($('#comment-field').val()==""){
+        return false;
+      }
+      else {
+          postComments();
+          getComments();
+      };
+    };  //end textCheck
+
+  $('#submit').click(function(){
+    textCheck()}
     );
 
   $('#myTab a').tab();
