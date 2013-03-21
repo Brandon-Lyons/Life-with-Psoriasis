@@ -28,6 +28,7 @@ $(document).ready(function(){
   });
 
   getTweets();
+  getComments();
 
   function getTweets() {
     $.ajax({
@@ -42,6 +43,37 @@ $(document).ready(function(){
     });
   };
 
+  function postComments() {
+    $.ajax({
+      type: "POST",
+      url:"backliftapp/comments",
+      data: {comment: $('#comment-field').val()},
+      success: function(data){
+        console.log(data);
+      }
+    })
+  };  //end postComments
+
+  function getComments() {
+    $.ajax({
+      type: "GET",
+      url:"backliftapp/comments",
+      success: function(data){
+        for (var i = 0; i< data.length; i++){
+          comment = data[i].comment;
+          $('#ticker').append("<li>"+ comment +"</li>");
+        };
+        $('#ticker').liScroll();
+      }
+    })
+  };
+
+  $('#submit').click(
+    function(){
+      postComments();
+      getComments();
+    }
+    );
 
   $('#myTab a').tab();
   
@@ -96,7 +128,7 @@ $(document).ready(function(){
 
     var infoWindow = new google.maps.InfoWindow();
     marker.setPosition(place.geometry.location);
-    infoWindow.setContent('<div><strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p><a href="'+ place.website +'" >'+ place.website +'</a>');
+    infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p><a href="'+ place.website +'" >'+ place.website +'</a>');
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.close();
       infoWindow.open(map, this);
@@ -107,7 +139,7 @@ $(document).ready(function(){
  
 
   function loadNewsFeed() {
-    var feed = new google.feeds.Feed("http://www.news-medical.net/tag/feed/Psoriasis.aspx");
+    var feed = new google.feeds.Feed("http://www.medworm.com/rss/medicalfeeds/conditions/Psoriasis.xml");
     feed.load(function(result){
       if (!result.error) {
         var container = $('#newsFeedInner');

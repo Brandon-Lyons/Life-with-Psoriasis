@@ -7,11 +7,13 @@
     <link type="text/css" rel="stylesheet" href="styles/bootstrap-responsive.css">
     <link type="text/css" rel="stylesheet" href="styles/bootstrap-responsive.min.css">
     <link type="text/css" rel="stylesheet" href="styles/bootstrap-form.css">
+    <link rel="stylesheet" type="text/css" href="styles/li-scroller.css">
     <link type="text/css" rel="stylesheet" href="brandon.css">
     <script src="scripts/jquery-1.9.1.min.js"></script>
 		<script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/jquery.totemticker.min.js"></script>
     <script src="https://twitter.com/javascripts/widgets/widget.js"></script>
+    <script type="text/javascript" src="scripts/jquery.li-scroller.1.0.js"></script>
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAhbAec96-GR090527-OjW6GG0QRy8nzpk&sensor=true"></script>
      <script type="text/javascript" src="https://www.google.com/jsapi?key=AIzaSyAhbAec96-GR090527-OjW6GG0QRy8nzpk"></script> 
     <script src="scripts/main.js"></script>
@@ -40,13 +42,14 @@
           </div>
           <div class="title-nav">
             <ul>
-              <li><div class="section-link btn btn-info" id="first_section_link"><a href="#">About</a></div></li>
-              <li><div class="section-link btn btn-info" id="second_section_link"><a href="#">Treatment</a></div></li>
-              <li><div class="section-link btn btn-info" id="third_section_link"><a href="#">Find Help</a></div></li>
+              <li><div class="section-link btn" id="first_section_link"><a href="#">About</a></div></li>
+              <li><div class="section-link btn" id="second_section_link"><a href="#">Treatment</a></div></li>
+              <li><div class="section-link btn" id="third_section_link"><a href="#">Find Help</a></div></li>
             </ul>
           </div>
           <div id="follow-button">
-            <a href="https://twitter.com/LifewPsoriasis" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @LifewPsoriasis</a>
+            <a href="https://twitter.com/LifewPsoriasis" class="twitter-follow-button" data-show-count="false" data-size="large">
+              Follow @LifewPsoriasis</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </div>
         </div>
@@ -225,6 +228,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="comments">
+      <div id="ticker-div">
+        <ul id="ticker">
+
+        </ul> 
+      </div>
+      <textarea id="comment-field" name="comments" cols="15" rows="3" placeholder="Please enter any comments"></textarea>
+      <button id="submit">Submit</button>
     </div>
   </body>
 </html>
