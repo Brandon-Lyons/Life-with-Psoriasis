@@ -170,7 +170,9 @@ $(document).ready(function(){
   };
 
   function loadNewsFeed() {
-    var feed = new google.feeds.Feed("http://www.medworm.com/rss/medicalfeeds/conditions/Psoriasis.xml");
+    var feed = new google.feeds.Feed("http://www.medicalnewstoday.com/rss/eczema-psoriasis.xml");
+    feed.includeHistoricalEntries();
+    feed.setNumEntries(5);
     feed.load(function(result){
       if (!result.error) {
         var container = $('#newsFeedInner');
