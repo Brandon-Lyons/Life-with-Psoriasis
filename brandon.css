@@ -55,13 +55,12 @@ body {
   width:80%;
   min-height:100px;
   margin:auto;
-  margin-left: 120px;
 }
 .title-nav li{
   display:inline;
 }
 .section-link {
-  width:25%;
+  width:20%;
   float:left;
   background: #207cca; /* Old browsers */
   background: -moz-linear-gradient(top,  #207cca 0%, #999999 0%, #748099 68%); /* FF3.6+ */
@@ -213,5 +212,10 @@ body {
   box-shadow: 10px 10px 5px #888888;
   margin-bottom: 5px;
   border-radius: 15px;
-  padding: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+textarea#new_post{
+  width: 80%;
+  resize: none;
 }
