@@ -1,7 +1,70 @@
-  google.load("feeds", "1");
+google.load("feeds", "1");
+
+function deletePost(id) {
+  $.ajax({
+    url: "backliftapp/posts/" + id,
+    type: "DELETE",
+    dataType: "json",
+    success: function() {
+      refreshPosts()
+    }
+  });
+};
+
+ function loadForum() {
+  $.ajax({
+    dataType:"json",
+    type:"GET",
+    url:"backliftapp/posts",
+    success:function(response) {
+      posts = response;
+      $.each(posts, function() {
+        $('#forum-posts').append("<li><div class='post-box'><button class='close' onclick='deletePost(\""+ this.id +"\")'>x</button><h5>" + this.text + "</h5><p>-"+ this.name +"</p></div></li>")
+      });
+    }
+  });
+};
+
+function refreshPosts() {
+  $('#forum-posts').children().remove();
+  loadForum();
+};
+
+
+function addPost(content, name) {
+  $.ajax({
+    dataType:"json",
+    type:"POST",
+    url:"backliftapp/posts",
+    data: {text: content,
+           name: name
+          },
+    success:function(response) {
+      refreshPosts();
+      $('#new_post').val("");
+      $('#post_name').val("")
+    }
+  });
+};
+
+
+function getTweets() {
+  $.ajax({
+    dataType:"jsonp", 
+    type:"GET", 
+    url:"https://search.twitter.com/search.json?q=%23psoriasis",
+    success:function(response) {
+      tweets = (response.results);
+      $.each(tweets, function() { $("#tweets").append("<li><a href='https://twitter.com/"+ this.from_user +"'><h5>" + this.text + "</h5></a></li>") });
+      $('#tweets').totemticker({row_height:"30", max_items:"1"});
+    }
+  });
+};
+
+
 $(document).ready(function(){
 
-  $('body').css('background-color', '#ADB4C4')
+  $('body').css('background-color', '#ADB4C4');
 
   $('.main-content').hide();
 
@@ -27,75 +90,24 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  $('#fourth_section_link').click(function(e) {
+    $('.main-content').hide();
+    $('.title-description').slideUp(1000);
+    $('#fourth-content-div').slideDown(1000);
+    refreshPosts();
+    e.preventDefault();
+  });
+
+  loadForum();
+
   getTweets();
-  getComments();
-  // deleteComment();
 
-  // function deleteComment(){
-  //   $.ajax({
-  //     url: "backliftapp/comments/2152405c-3df3-4477-ae9a-a6b4df9125fb",
-  //     type: "DELETE",
-  //     datatype: "json",
-  //     success: function(){
-  //       location.reload();
-  //     }
-  //     });
-  // };
+  $('#submit_post').click(function() {
+    addPost($('#new_post').val(), $('#post_name').val());
+  });
 
-  function getTweets() {
-    $.ajax({
-      dataType:"jsonp", 
-      type:"GET", 
-      url:"https://search.twitter.com/search.json?q=%23psoriasis",
-      success:function(response) {
-        tweets = (response.results);
-        $.each(tweets, function() { $("#tweets").append("<li><a href='https://twitter.com/"+ this.from_user +"'><h5>" + this.text + "</h5></a></li>") });
-        $('#tweets').totemticker({row_height:"30", max_items:"1"});
-      }
-    });
-  };
 
-  function postComments() {
-    $.ajax({
-      type: "POST",
-      url:"backliftapp/comments",
-      data: {comment: $('#comment-field').val()},
-      success: function(data){
-        $('#comment-field').val("");
-        console.log(data);
-        getComments();
-      }
-    })
-  };  //end postComments
-
-  function getComments() {
-    $.ajax({
-      type: "GET",
-      url:"backliftapp/comments",
-      success: function(data){
-        for (var i = 0; i< data.length; i++){
-          comment = data[i].comment;
-          $('#ticker').append("<li><a href=''>"+ comment +"</a></li>");
-        };
-        $('#ticker').liScroll();
-      }
-    })
-  };  //end getComments
-
-  function textCheck() {
-      if($('#comment-field').val()==""){
-        return false;
-      }
-      else {
-          postComments();
-          getComments();
-      };
-    };  //end textCheck
-
-  $('#submit').click(function(){
-    textCheck()}
-    );
-
+ 
   $('#myTab a').tab();
   
  var getMap = function() {
@@ -156,8 +168,6 @@ $(document).ready(function(){
     });
   };
   };
-
- 
 
   function loadNewsFeed() {
     var feed = new google.feeds.Feed("http://www.medworm.com/rss/medicalfeeds/conditions/Psoriasis.xml");

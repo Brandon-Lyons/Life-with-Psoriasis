@@ -147,8 +147,8 @@ body {
 
 #map{
   height: 60%;
-  width: 100%;
-  margin-left:5%;
+  width: 65%;
+  margin-left: 25%;
   color: black;
 }
 
@@ -191,4 +191,27 @@ body {
 
 #submit {
   float: right;
+}
+
+.nav-tabs:after{
+  clear: none;
+  }
+
+.fixed-height {
+  max-height:50px;
+}
+
+#forum-posts li{
+  list-style: none;
+}
+
+.post-box{
+  width: 80%;
+  min-height: 75px;
+  background-color: #69799A;
+  color: #E39E5B;
+  box-shadow: 10px 10px 5px #888888;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  padding: 5px;
 }

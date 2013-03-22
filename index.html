@@ -10,21 +10,21 @@
     <link rel="stylesheet" type="text/css" href="styles/li-scroller.css">
     <link type="text/css" rel="stylesheet" href="brandon.css">
     <script src="scripts/jquery-1.9.1.min.js"></script>
-		<script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/jquery.totemticker.min.js"></script>
     <script src="https://twitter.com/javascripts/widgets/widget.js"></script>
     <script type="text/javascript" src="scripts/jquery.li-scroller.1.0.js"></script>
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAhbAec96-GR090527-OjW6GG0QRy8nzpk&sensor=true"></script>
-     <script type="text/javascript" src="https://www.google.com/jsapi?key=AIzaSyAhbAec96-GR090527-OjW6GG0QRy8nzpk"></script> 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAhbAec96-GR090527-OjW6GG0QRy8nzpk&sensor=true"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi?key=AIzaSyAhbAec96-GR090527-OjW6GG0QRy8nzpk"></script> 
     <script src="scripts/main.js"></script>
   </head>
   <body>
     <div class="outerwrapper"> <!-- width:960px; -->
       <div id="top-twitter-feed" class="navbar" style="background-color:#ADB4C4"> <!-- width:100% -->
         <div class="nav-bar-inner">
-        <ul id="tweets" style="background-color:#69799A;border-radius:5px;margin:auto;"></ul>
+          <ul id="tweets" style="background-color:#69799A;border-radius:5px;margin:auto;"></ul>
+        </div>
       </div>
-    </div>
       <div class="title-and-nav-content">
         <div class="title-content">
           <div class="title-logo">
@@ -45,6 +45,7 @@
               <li><div class="section-link btn" id="first_section_link"><a href="#">About</a></div></li>
               <li><div class="section-link btn" id="second_section_link"><a href="#">Treatment</a></div></li>
               <li><div class="section-link btn" id="third_section_link"><a href="#">Find Help</a></div></li>
+              <li><div class="section-link btn" id="fourth_section_link"><a href="#">Forum</a></div></li>
             </ul>
           </div>
           <div id="follow-button">
@@ -65,25 +66,25 @@
               width: "100%",
               height: "700px",
               theme: {
-              shell: {
-                background: 'transparent',
-                color: '#E39E5B'
-              },
-              tweets: {
-                background: '#ADB4C4',
-                color: '#A43C23',
-                links: '334',
-                width: '60%'
-              }
+                shell: {
+                  background: 'transparent',
+                  color: '#E39E5B'
+                },
+                tweets: {
+                  background: '#ADB4C4',
+                  color: '#A43C23',
+                  links: '334',
+                  width: '60%'
+                }
               },
               features: {
-              scrollbar: false,
-              loop: false,
-              live: false,
-              hashtags: true,
-              timestamp: true,
-              avatars: false,
-              behavior: 'all'
+                scrollbar: false,
+                loop: false,
+                live: false,
+                hashtags: true,
+                timestamp: true,
+                avatars: false,
+                behavior: 'all'
               }
             }).render().setUser('LifewPsoriasis').start();
           </script>
@@ -98,72 +99,74 @@
         <div class="main-content" id="first-content-div">
           <h3>What is Psoriasis</h3>
           <p>
-            Psoriasis is a chronic, autoimmune disease that appears on the skin. It occurs when the immune system sends out faulty signals that speed up the growth cycle of skin cells. Psoriasis is not contagious.  
+          Psoriasis is a chronic, autoimmune disease that appears on the skin. It occurs when the immune system sends out faulty signals that speed up the growth cycle of skin cells. Psoriasis is not contagious.  
           </p>
           <br>
           <h4>What does this mean for me</h4>
           <p>
-            This means that psoriasis is going to be with you for a while. Now depending on the type of psoriasis that you have there are different treatments and therapies. Don't worry though, even if you're stuck with psoriasis it won't affect you socially unless you let it.
+          This means that psoriasis is going to be with you for a while. Now depending on the type of psoriasis that you have there are different treatments and therapies. Don't worry though, even if you're stuck with psoriasis it won't affect you socially unless you let it.
           </p>
           <br>
           <h4>What are the different types of Psoriasis</h4>
           <p>
-            According to the <a href="http://www.psoriasis.org">National Psoriasis Foundation</a> there are 5 types of psoriasis.
+          According to the <a href="http://www.psoriasis.org">National Psoriasis Foundation</a> there are 5 types of psoriasis.
           </p>  
+          <div class="row fixed-height">
+            <ul class="nav nav-tabs" id="myTab">
+              <li><a href="#type-plaque" data-toggle="tab">Plaque</a></li>
+              <li><a href="#type-guttate" data-toggle="tab">Guttate</a></li>
+              <li><a href="#type-inverse" data-toggle="tab">Inverse</a></li>
+              <li><a href="#type-pustular" data-toggle="tab">Pustular</a></li>
+              <li><a href="#type-erythrodermic" data-toggle="tab">Erythrodermic</a></li>
+            </ul>
+          </div>
           <div class="row">
-          <ul class="nav nav-tabs" id="myTab">
-          <li><a href="#type-plaque" data-toggle="tab">Plaque</a></li>
-          <li><a href="#type-guttate" data-toggle="tab">Guttate</a></li>
-          <li><a href="#type-inverse" data-toggle="tab">Inverse</a></li>
-          <li><a href="#type-pustular" data-toggle="tab">Pustular</a></li>
-          <li><a href="#type-erythrodermic" data-toggle="tab">Erythrodermic</a></li>
-          </ul>
-          <div class="tab-content">
-          <div class="tab-pane fade" id="type-plaque">
-          <p>
-            Plaque psoriasis is the most common of all the types. About 80% of those with psoriasis have this type. You can recognize it by raised, inflamed, red lesions covered by a silvery white scale. It is typically found on the elbows, knees, scalp and lower back.
-          </p>
-          </div>
-          <div class="tab-pane fade" id="type-guttate">
-          <p>
-            Guttate psoriasis 
-          </p>
-          </div>
-          <div class="tab-pane fade" id="type-inverse">
-            <p>
-            Inverse
-            </p>
-          </div>
-          <div class="tab-pane fade" id="type-pustular">
-            <p>
-              Pustular
-            </p>
-          </div>
-          <div class="tab-pane fade" id="type-erythrodermic">
-            <p>
-              Erythrodermic
-            </p>
-          </div>
-        </div>
-        </div>
-        </div>
-        <div class="main-content" id="second-content-div">
-         <h3>Treatments</h3>
-         <div class="accordion" id="accordion1">
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a href="#topical" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1">
-                Topical
-              </a>
-            </div>
-            <div class="accordion-body collapse in" id="topical">
-              <div class="accordion-inner">
+            <div class="tab-content">
+              <div class="tab-pane fade" id="type-plaque">
                 <p>
-                  Topical
+                Plaque psoriasis is the most common of all the types. About 80% of those with psoriasis have this type. You can recognize it by raised, inflamed, red lesions covered by a silvery white scale. It is typically found on the elbows, knees, scalp and lower back.
+                </p>
+              </div>
+              <div class="tab-pane fade" id="type-guttate">
+                <p>
+                Guttate psoriasis 
+                </p>
+              </div>
+              <div class="tab-pane fade" id="type-inverse">
+                <p>
+                Inverse
+                </p>
+              </div>
+              <div class="tab-pane fade" id="type-pustular">
+                <p>
+                Pustular
+                </p>
+              </div>
+              <div class="tab-pane fade" id="type-erythrodermic">
+                <p>
+                Erythrodermic
                 </p>
               </div>
             </div>
           </div>
+        </div>
+        <div class="main-content" id="second-content-div">
+          <h3>Treatments</h3>
+          <div class="accordion" id="accordion1">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a href="#topical" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1">
+                  Topical
+                </a>
+              </div>
+              <div class="accordion-body collapse in" id="topical">
+                <div class="accordion-inner">
+                  <p>
+                  Topical
+                  </p>
+                </div>
+              </div>
+            </div>
           <div class="accordion-group">
             <div class="accordion-heading">
               <a href="#phototherapy" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1">
@@ -173,7 +176,7 @@
             <div class="accordion-body collapse in" id="phototherapy">
               <div class="accordion-inner">
                 <p>
-                  Phototherapy
+                Phototherapy
                 </p>
               </div>
             </div>
@@ -187,7 +190,7 @@
             <div class="accordion-body collapse in" id="systemics">
               <div class="accordion-inner">
                 <p>
-                  Systemics
+                Systemics
                 </p>
               </div>
             </div>
@@ -201,7 +204,7 @@
             <div class="accordion-body collapse in" id="biologics">
               <div class="accordion-inner">
                 <p>
-                  Biologics
+                Biologics
                 </p>
               </div>
             </div>
@@ -215,29 +218,30 @@
             <div class="accordion-body collapse in" id="complementary">
               <div class="accordion-inner">
                 <p>
-                  Complementary and Alternative Therapies
+                Complementary and Alternative Therapies
                 </p>
               </div>
             </div>
           </div>
-         </div>
         </div>
+      </div>
         <div class="main-content" id="third-content-div">
           <input type="text" id="autocomplete" placeholder="Please enter address, city, or state for Dermatologists nearby">
           <div id="map">
           </div>
         </div>
+        <div class="main-content" id="fourth-content-div">
+          <div id="forum">
+            <textarea type="text" id="new_post" placeholder="Write a Post!" cols="10" rows="4"></textarea>
+            <input type="text" id="post_name" placeholder="Enter your name">
+            <div class="btn" id="submit_post">Submit</div>
+            <ul id="forum-posts">
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <div id="comments">
-      <div id="ticker-div">
-        <ul id="ticker">
-
-        </ul> 
-      </div>
-      <textarea id="comment-field" name="comments" cols="15" rows="3" placeholder="Please enter any comments"></textarea>
-      <button id="submit">Submit</button>
-    </div>
+  </div>
   </body>
 </html>
 
