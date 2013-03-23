@@ -146,8 +146,8 @@ body {
 
 #map{
   height: 60%;
-  width: 65%;
-  margin-left: 25%;
+  width: 80%;
+  margin-left: 15%;
   color: black;
 }
 
@@ -218,4 +218,12 @@ body {
 textarea#new_post{
   width: 80%;
   resize: none;
+}
+
+.treatment-div h3{
+  background-color: #69799A;
+  color: #E39E5B;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-left: 5px;
 }

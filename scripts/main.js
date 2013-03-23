@@ -67,6 +67,8 @@ $(document).ready(function(){
   $('body').css('background-color', '#ADB4C4');
 
   $('.main-content').hide();
+  $('.treatment').hide();
+  $('.close-img').hide();
 
   $('#first_section_link').click(function(e) {
     $('.main-content').hide();
@@ -96,6 +98,12 @@ $(document).ready(function(){
     $('#fourth-content-div').slideDown(1000);
     refreshPosts();
     e.preventDefault();
+  });
+
+  $('.treatment-div h3').click(function(){
+    $(this).next('.treatment').slideToggle();
+    $('.open-img', this).toggle();
+    $('.close-img', this).toggle()
   });
 
   loadForum();
@@ -174,7 +182,7 @@ $(document).ready(function(){
     feed.includeHistoricalEntries();
     feed.setNumEntries(5);
     feed.load(function(result){
-      if (!result.error) {
+      if (!result.error) { 
         var container = $('#newsFeedInner');
         for (var i=0; i< result.feed.entries.length; i++) {
           var entry = result.feed.entries[i];
