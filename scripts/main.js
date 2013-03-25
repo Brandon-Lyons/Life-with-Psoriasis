@@ -1,5 +1,7 @@
 google.load("feeds", "1");
 
+
+//**************delete posts function********************************
 function deletePost(id) {
   $.ajax({
     url: "backliftapp/posts/" + id,
@@ -9,8 +11,10 @@ function deletePost(id) {
       refreshPosts()
     }
   });
-};
+};  //end deletePost
 
+
+//**************
  function loadForum() {
   $.ajax({
     dataType:"json",
@@ -23,12 +27,12 @@ function deletePost(id) {
       });
     }
   });
-};
+};  //end loadForum
 
 function refreshPosts() {
   $('#forum-posts').children().remove();
   loadForum();
-};
+};  //end refreshPosts
 
 
 function addPost(content, name) {
@@ -45,7 +49,7 @@ function addPost(content, name) {
       $('#post_name').val("")
     }
   });
-};
+};  //end addPost
 
 
 function getTweets() {
@@ -59,7 +63,7 @@ function getTweets() {
       $('#tweets').totemticker({row_height:"30", max_items:"1"});
     }
   });
-};
+};  //end getTweets
 
 
 $(document).ready(function(){
@@ -111,7 +115,13 @@ $(document).ready(function(){
   getTweets();
 
   $('#submit_post').click(function() {
+    if ($('#new_post').val()=="" || $('#post_name').val()==""){
+      alert('please fill all inputs.');
+      return false
+    }
+    else{
     addPost($('#new_post').val(), $('#post_name').val());
+  }
   });
 
 
@@ -128,7 +138,6 @@ $(document).ready(function(){
   var map = new google.maps.Map(document.getElementById("map"),mapOptions);
 
   var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-  // autocomplete.bindTo('bounds',map);
 
   var service = new google.maps.places.PlacesService(map);
 
@@ -169,7 +178,7 @@ $(document).ready(function(){
 
     var infoWindow = new google.maps.InfoWindow();
     marker.setPosition(place.geometry.location);
-    infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p><a href="'+ place.website +'" >'+ place.website +'</a>');
+    infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p>');
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.close();
       infoWindow.open(map, this);
