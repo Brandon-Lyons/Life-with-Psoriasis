@@ -16,7 +16,7 @@ RSS news feed on the side displaying medical news pertaining to psoriasis
 
 Google maps and places api that displays dermatologists near whatever location you search for
 
-Forum section 
+Forum section with basic validation
 
 Features that may be added
 ====================
@@ -26,4 +26,4 @@ To be determined
 Left to do
 ==========
 
-Finish content and styling
+To be determined
