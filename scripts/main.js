@@ -14,7 +14,7 @@ function deletePost(id) {
 };  //end deletePost
 
 
-//**************
+//**************initial forum loading on refresh*******************************
  function loadForum() {
   $.ajax({
     dataType:"json",
@@ -29,12 +29,13 @@ function deletePost(id) {
   });
 };  //end loadForum
 
+//*****************refreshes forum post list*********************
 function refreshPosts() {
   $('#forum-posts').children().remove();
   loadForum();
 };  //end refreshPosts
 
-
+//*****************takes forum input values and insert them into forum divs******************************
 function addPost(content, name) {
   $.ajax({
     dataType:"json",
@@ -51,7 +52,7 @@ function addPost(content, name) {
   });
 };  //end addPost
 
-
+//****************searches twitter for tweets with #psoriasis and lists them at top*******************************
 function getTweets() {
   $.ajax({
     dataType:"jsonp", 
@@ -60,7 +61,7 @@ function getTweets() {
     success:function(response) {
       tweets = (response.results);
       $.each(tweets, function() { $("#tweets").append("<li><a href='https://twitter.com/"+ this.from_user +"'><h5>" + this.text + "</h5></a></li>") });
-      $('#tweets').totemticker({row_height:"30", max_items:"1"});
+      $('#tweets').totemticker({row_height:"30", max_items:"1"});  //totemticker plugin scrolls through results list one at a time
     }
   });
 };  //end getTweets
@@ -114,6 +115,7 @@ $(document).ready(function(){
 
   getTweets();
 
+//*************Forum validation function***********************
   $('#submit_post').click(function() {
     if ($('#new_post').val()=="" || $('#post_name').val()==""){
       alert('please fill all inputs.');
@@ -126,8 +128,9 @@ $(document).ready(function(){
 
 
  
-  $('#myTab a').tab();
+  $('#myTab a').tab();  //bootstrap tab function
   
+  //**************************setup funtions for Google Maps*********************************
  var getMap = function() {
   var mapOptions = {
     center: new google.maps.LatLng(36.1666667, -86.78333329999998),
@@ -171,6 +174,7 @@ $(document).ready(function(){
     console.log(status);
   };
 
+//********************creates markers and infowindows at search result locations********************
   function createMarker (place) {
     var marker = new google.maps.Marker({
       map: map
@@ -186,16 +190,17 @@ $(document).ready(function(){
   };
   };
 
+//********************uses Google Feeds to display RSS feed**************************************
   function loadNewsFeed() {
     var feed = new google.feeds.Feed("http://www.medicalnewstoday.com/rss/eczema-psoriasis.xml");
-    feed.includeHistoricalEntries();
-    feed.setNumEntries(5);
+    feed.includeHistoricalEntries();  //includes any past entries it finds
+    feed.setNumEntries(5);  //sets entries limit at 5
     feed.load(function(result){
       if (!result.error) { 
         var container = $('#newsFeedInner');
         for (var i=0; i< result.feed.entries.length; i++) {
           var entry = result.feed.entries[i];
-          $(container).append("<p><a href='" + entry.link + "'>" + entry.title + "</a><br></p>");
+          $(container).append("<p><a href='" + entry.link + "'>" + entry.title + "</a><br></p>"); //if there is no error return entry url and title
         };
       }
     })

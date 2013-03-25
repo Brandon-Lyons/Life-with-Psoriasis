@@ -51,6 +51,8 @@
         </div>
       </div>
       <div class="main-right" style="float:right;width:25%">
+
+        <!--Side Twitter feed-->
         <div class="twitter-feed" style="background-color:#69799A;border-radius:15px;margin-right:2%;">
           <script>
             new TWTR.Widget({
@@ -74,8 +76,8 @@
               },
               features: {
                 scrollbar: false,
-                loop: false,
-                live: false,
+                loop: true,
+                live: true,
                 hashtags: true,
                 timestamp: true,
                 avatars: false,
@@ -84,11 +86,14 @@
             }).render().setUser('LifewPsoriasis').start();
           </script>
         </div>
+        <!--end side Twitter feed-->
+        <!--side news feed-->
         <div id="newsFeed">
           <h4>News</h4>
           <div id="newsFeedInner">
           </div>
         </div>
+        <!--end side news feed-->
       </div>
       <div class="main" style="background-color:#ADB4C4">
         <div class="main-content" id="first-content-div">
