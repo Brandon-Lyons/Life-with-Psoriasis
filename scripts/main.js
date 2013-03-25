@@ -61,7 +61,7 @@ function getTweets() {
     success:function(response) {
       tweets = (response.results);
       $.each(tweets, function() { $("#tweets").append("<li><a href='https://twitter.com/"+ this.from_user +"'><h5>" + this.text + "</h5></a></li>") });
-      $('#tweets').totemticker({row_height:"30", max_items:"1"});  //totemticker plugin scrolls through results list one at a time
+      $('#tweets').totemticker({row_height:"30", max_items:"1", mousestop: true });  //totemticker plugin scrolls through results list one at a time
     }
   });
 };  //end getTweets
