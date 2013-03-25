@@ -170,8 +170,6 @@ $(document).ready(function(){
         createMarker(results[i]);
       };
     };
-    console.log(results);
-    console.log(status);
   };
 
 //********************creates markers and infowindows at search result locations********************
