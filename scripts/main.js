@@ -75,17 +75,17 @@ $(document).ready(function(){
   $('.treatment').hide();
   $('.close-img').hide();
 
- $('.section-link').click(function(e){
-  $('.main-content').hide();
-  $('.title-description').slideUp(1000);
-  $($(this).attr('data-link')).slideDown(1000);
-  e.preventDefault();
-  setTimeout(getMap, 1000);
-  refreshPosts();
- });
+  $('.section-link').click(function(e){
+    $('.main-content').hide();
+    $('.title-description').slideUp(1000);
+    $($(this).attr('data-link')).slideDown(1000);
+    e.preventDefault();
+    setTimeout(getMap, 1000);
+    refreshPosts();
+  });
 
 
-  $('.treatment-div h3').click(function(){
+  $('.treatment-div a').click(function(){
     $(this).next('.treatment').slideToggle();
     $('.open-img', this).toggle();
     $('.close-img', this).toggle()
@@ -111,77 +111,79 @@ $(document).ready(function(){
   $('#myTab a').tab();  //bootstrap tab function
   
   //**************************setup funtions for Google Maps*********************************
- var getMap = function() {
+  var getMap = function() {
   var mapOptions = {
     center: new google.maps.LatLng(36.1666667, -86.78333329999998),
     zoom: 15,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+    var map = new google.maps.Map(document.getElementById("map"),mapOptions);
 
-  var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
 
-  var service = new google.maps.places.PlacesService(map);
+    var service = new google.maps.places.PlacesService(map);
 
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-    var infoWindow = new google.maps.InfoWindow();
-    infoWindow.close();
-    var loc = autocomplete.getPlace();
-    var lat= loc.geometry.location.kb;
-    var lon= loc.geometry.location.lb;
-    var request= {
-      location: new google.maps.LatLng (lat, lon),
-      radius: '5000',
-      keyword: 'dermatologist'
-    };
-    service.nearbySearch(request, callback);
-    if (loc.geometry.viewport) {
-      map.fitBounds(loc.geometry.viewport);
-    } else {
-      map.setCenter(loc.geometry.location);
-      map.setZoom(15);
-    }
- });  //end google.maps event listener
-  function callback(results, status) {
-    if (status===google.maps.places.PlacesServiceStatus.OK) {
-      for (var i=0; i< results.length; i++){
-        var place= results[i];
-        createMarker(results[i]);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var infoWindow = new google.maps.InfoWindow();
+      infoWindow.close();
+      var loc = autocomplete.getPlace();
+      var lat= loc.geometry.location.kb;
+      var lon= loc.geometry.location.lb;
+      var request= {
+        location: new google.maps.LatLng (lat, lon),
+        radius: '5000',
+        keyword: 'dermatologist'
+      };
+      service.nearbySearch(request, callback);
+      if (loc.geometry.viewport) {
+        map.fitBounds(loc.geometry.viewport);
+      } else {
+        map.setCenter(loc.geometry.location);
+        map.setZoom(15);
+      }
+   });  //end google.maps event listener
+    function callback(results, status) {
+      if (status===google.maps.places.PlacesServiceStatus.OK) {
+        for (var i=0; i< results.length; i++){
+          var place= results[i];
+          createMarker(results[i]);
+        };
       };
     };
-  };
 
-//********************creates markers and infowindows at search result locations********************
-  function createMarker (place) {
-    var marker = new google.maps.Marker({
-      map: map
-    });
+  //********************creates markers and infowindows at search result locations********************
+    function createMarker (place) {
+      var marker = new google.maps.Marker({
+        map: map
+      });
 
-    var infoWindow = new google.maps.InfoWindow();
-    marker.setPosition(place.geometry.location);
-    infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p>');
-    google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.close();
-      infoWindow.open(map, this);
-    });
-  };
-  };
+      var infoWindow = new google.maps.InfoWindow();
+      marker.setPosition(place.geometry.location);
+      infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p>');
+      google.maps.event.addListener(marker, 'click', function() {
+        marker.setZIndex(500, this);
+        infoWindow.close();
+        infoWindow.open(map, this);
+        infoWindow.setZIndex(500, this);
+      });
+    };
+    };
 
-//********************uses Google Feeds to display RSS feed**************************************
-  function loadNewsFeed() {
-    var feed = new google.feeds.Feed("http://www.medicalnewstoday.com/rss/eczema-psoriasis.xml");
-    feed.includeHistoricalEntries();  //includes any past entries it finds
-    feed.setNumEntries(5);  //sets entries limit at 5
-    feed.load(function(result){
-      if (!result.error) { 
-        var container = $('#newsFeedInner');
-        for (var i=0; i< result.feed.entries.length; i++) {
-          var entry = result.feed.entries[i];
-          $(container).append("<p><a href='" + entry.link + "'>" + entry.title + "</a><br></p>"); //if there is no error return entry url and title
-        };
-      }
-    })
-  } ;
-  google.setOnLoadCallback(loadNewsFeed);
+  //********************uses Google Feeds to display RSS feed**************************************
+    function loadNewsFeed() {
+      var feed = new google.feeds.Feed("http://www.medicalnewstoday.com/rss/eczema-psoriasis.xml");
+      feed.includeHistoricalEntries();  //includes any past entries it finds
+      feed.setNumEntries(5);  //sets entries limit at 5
+      feed.load(function(result){
+        if (!result.error) { 
+          var container = $('#newsFeedInner');
+          for (var i=0; i< result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            $(container).append("<p><a href='" + entry.link + "'>" + entry.title + "</a><br></p>"); //if there is no error return entry url and title
+          };
+        }
+      })
+    } ;
+    google.setOnLoadCallback(loadNewsFeed);
 });  //end ready
