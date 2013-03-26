@@ -75,35 +75,15 @@ $(document).ready(function(){
   $('.treatment').hide();
   $('.close-img').hide();
 
-  $('#first_section_link').click(function(e) {
-    $('.main-content').hide();
-    $('.title-description').slideUp(1000);
-    $('#first-content-div').slideDown(1000);
-    e.preventDefault();
-  });
+ $('.section-link').click(function(e){
+  $('.main-content').hide();
+  $('.title-description').slideUp(1000);
+  $($(this).attr('data-link')).slideDown(1000);
+  e.preventDefault();
+  setTimeout(getMap, 1000);
+  refreshPosts();
+ });
 
-  $('#second_section_link').click(function(e) {
-    $('.main-content').hide();
-    $('.title-description').slideUp(1000);
-    $('#second-content-div').slideDown(1000);
-    e.preventDefault();
-  });
-
-  $('#third_section_link').click(function(e) {
-    $('.main-content').hide();
-    $('.title-description').slideUp(1000);
-    $('#third-content-div').slideDown(1000);
-   setTimeout(getMap, 1000);
-    e.preventDefault();
-  });
-
-  $('#fourth_section_link').click(function(e) {
-    $('.main-content').hide();
-    $('.title-description').slideUp(1000);
-    $('#fourth-content-div').slideDown(1000);
-    refreshPosts();
-    e.preventDefault();
-  });
 
   $('.treatment-div h3').click(function(){
     $(this).next('.treatment').slideToggle();
@@ -162,7 +142,7 @@ $(document).ready(function(){
       map.setCenter(loc.geometry.location);
       map.setZoom(15);
     }
- });  //en google.maps event listener
+ });  //end google.maps event listener
   function callback(results, status) {
     if (status===google.maps.places.PlacesServiceStatus.OK) {
       for (var i=0; i< results.length; i++){
