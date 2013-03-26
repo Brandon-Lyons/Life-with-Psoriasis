@@ -163,7 +163,7 @@ $(document).ready(function(){
       infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p>');
       google.maps.event.addListener(marker, 'click', function() {
         marker.setZIndex(500, this);
-        infoWindow.close();
+        if (infoWindow) {infoWindow.close();}
         infoWindow.open(map, this);
         infoWindow.setZIndex(500, this);
       });
