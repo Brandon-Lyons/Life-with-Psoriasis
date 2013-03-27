@@ -162,9 +162,12 @@ $(document).ready(function(){
       marker.setPosition(place.geometry.location);
       infoWindow.setContent('<strong>' + place.name + '</strong><br><p>'+ place.vicinity +'</p>');
       google.maps.event.addListener(marker, 'click', function() {
+        if ($(infoWindow).attr('chosen')){
+          infoWindow.close();
+        }
         marker.setZIndex(500, this);
-        if (infoWindow) {infoWindow.close();}
         infoWindow.open(map, this);
+        $(infoWindow).attr('chosen', 'true')
         infoWindow.setZIndex(500, this);
       });
     };
